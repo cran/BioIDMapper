@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--  configuration file for BioIDMapper  -->
+
+<IDConfigure
+    title="BioIDMapper_Configure"
+    date="08/25/2007"
+    author="Xiaoyong Sun"
+    >
+
+    <!-- Gene Level -->
+    <gene site="ncbi">
+      <parameter>
+          <website label="rootURL">http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?</website>
+          <from_sign label="from_sign">dbfrom=</from_sign>
+          <to_sign label="to_sign">&amp;db=</to_sign>
+          <id_sign label="id_sign">&amp;id=</id_sign>
+          <queryLimit label="queryLimit">500</queryLimit>
+          <other_para label="other_para">&amp;tool=BioIDMapper</other_para>
+          <mapDBNumber>13</mapDBNumber>
+          <keyDB>protein</keyDB>
+      </parameter>
+      <allDBKey>
+            <dbkey site="http://www.ncbi.nlm.nih.gov/entrez/viewer.fcgi?val=" source="ncbi" detail="GI number">protein</dbkey>
+            <dbkey site="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&amp;db=PubMed&amp;term=" source="ncbi" detail="Pubmed id">pubmed</dbkey>
+            <dbkey source="ncbi" detail="GEO id">geo</dbkey>
+            <dbkey site="http://www.ncbi.nlm.nih.gov/entrez/dispomim.cgi?id=" source="ncbi" detail="OMIM id">omim</dbkey>
+            <dbkey site="http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?rs=" source="ncbi" detail="SNP id">snp</dbkey>
+            <dbkey source="ncbi" detail="UniGene cluster id">unigene</dbkey>
+            <dbkey source="ncbi" detail="UniSTS id">unists</dbkey>
+            <dbkey source="ncbi" detail="Popset id">popset</dbkey>
+            <dbkey source="ncbi" detail="MMDB id">structure</dbkey>
+            <dbkey source="ncbi" detail="3D SDI id">domains</dbkey>
+            <dbkey source="ncbi" detail="PSSM id">cdd</dbkey>
+            <dbkey site="http://www3.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?lvl=0&amp;id=" source="ncbi" detail="TAXID">taxonomy</dbkey>
+            <dbkey source="ncbi" detail="Genome id">genome</dbkey>
+            <dbkey site="http://pubchem.ncbi.nlm.nih.gov/summary/summary.cgi?cid=" source="ncbi" detail="PubChem Compound id">pccompound</dbkey> 
+            <dbkey site="http://pubchem.ncbi.nlm.nih.gov/summary/summary.cgi?sid=" source="ncbi" detail="PubChem Substance id">pcsubstance</dbkey>
+            <dbkey site="http://pubchem.ncbi.nlm.nih.gov/assay/assay.cgi?aid=" source="ncbi" detail="PubChem BioAssay id">pcassay</dbkey>
+      </allDBKey>
+    </gene>
+
+    <!-- Protein Level -->
+    <protein site="uniprot">
+      <parameter>
+        <website label="rootURL">http://pir.uniprot.org/cgi-bin/idmapping_http_client?</website>
+        <from_sign label="from_sign">from=</from_sign>
+        <to_sign label="to_sign">&amp;to=</to_sign>
+        <id_sign label="id_sign">&amp;ids=</id_sign>
+        <queryLimit label="queryLimit">200</queryLimit>
+        <other_para label="other_para">&amp;pair</other_para>
+        <mapDBNumber>15</mapDBNumber>
+        <keyDB>ACC</keyDB>
+      </parameter>
+      <allDBKey>
+            <dbkey site="http://www.ncbi.nlm.nih.gov/entrez/viewer.fcgi?val=" source="uniprot" detail="GI number">P_GI</dbkey>
+            <dbkey site="http://www.pir.uniprot.org/cgi-bin/upEntry?id=" source="uniprot" detail="UniProtKB Accession">ACC</dbkey>
+            <dbkey site="http://www.pir.uniprot.org/cgi-bin/upEntry?id=" source="uniprot" detail="UniProtKB id">ID</dbkey>
+            <dbkey site="http://pir.georgetown.edu/cgi-bin/nbrfget?uid=" source="uniprot" detail="PIR Accession">PIR_ID</dbkey>
+            <dbkey source="uniprot" detail="Enzyme Commission">EC_ID</dbkey>
+            <dbkey site="http://www.ebi.ac.uk/ego/GSearch?mode=id&amp;query=" source="uniprot" detail="Go id">GO_ID</dbkey>
+            <dbkey source="uniprot" detail="Entrez Gene id">P_ENTREZGENEID</dbkey>
+            <dbkey site="http://www.ebi.ac.uk/htbin/expasyfetch?" source="uniprot" detail="EMBL id">EMBL_ID</dbkey>
+            <dbkey source="uniprot" detail="ENSEMBL id">ENSEMBL_ID</dbkey>
+            <dbkey source="uniprot" detail="UniGene id">UNIGENE_ID</dbkey>
+            <dbkey source="uniprot" detail="TAIR id">TAIR_ID</dbkey>
+            <dbkey source="uniprot" detail="TIGR id">TIGR_ID</dbkey>
+            <dbkey source="uniprot" detail="KEGG id">KEGG_ID</dbkey>
+            <dbkey source="uniprot" detail="NCBI Taxon id">TAXID</dbkey>
+            <dbkey site="http://www.ncbi.nlm.nih.gov/entrez/dispomim.cgi?id=" source="uniprot" detail="OMIM id">MIM_ID</dbkey>
+            <dbkey source="uniprot" detail="Ecogene id">ECOGENE_ID</dbkey>
+						<dbkey source="uniprot" detail="Flybase id">FLYBASE_ID</dbkey>
+						<dbkey source="uniprot" detail="GENEDB_SPOMBE id">GENEDB_SPOMBE_ID</dbkey>
+						<dbkey source="uniprot" detail="GERMONLINE id">GERMONLINE_ID</dbkey>
+						<dbkey source="uniprot" detail="GRAMENE id">GRAMENE_ID</dbkey>
+						<dbkey source="uniprot" detail="HIV id">HIV_ID</dbkey>
+						<dbkey source="uniprot" detail="IPI">P_IPI</dbkey>
+						<dbkey site="http://www.rcsb.org/pdb/cgi/explore.cgi?pdbId=" source="uniprot" detail="PDB id">PDB_ID</dbkey>	
+						<dbkey source="uniprot" detail="REBASE id">REBASE_ID</dbkey>
+						<dbkey source="uniprot" detail="Refseq Accession">P_REFSEQ_AC</dbkey>
+						<dbkey site="http://genome-www4.stanford.edu/cgi-bin/SGD/locus.pl?locus=" source="uniprot" detail="SGD id">SGD_ID</dbkey>
+						<dbkey source="uniprot" detail="TRANSFAC id">TRANSFAC_ID</dbkey>
+						<dbkey source="uniprot" detail="WORMPEP id">WORMPEP_ID</dbkey>
+						<dbkey site="http://pir.uniprot.org/cgi-bin/upEntry?id=UniRef100_" source="uniprot" detail="UniRef100 id">NF100</dbkey>
+						<dbkey site="http://pir.uniprot.org/cgi-bin/upEntry?id=UniRef90_" source="uniprot" detail="UniRef90 id">NF90</dbkey>
+						<dbkey site="http://pir.uniprot.org/cgi-bin/upEntry?id=UniRef50_" source="uniprot" detail="UniRef50 id">NF50</dbkey>	
+						<dbkey site="http://www.ebi.ac.uk/interpro/DisplayIproEntry?ac=" source="uniprot" detail="InterPro id">INTERPRO_ID</dbkey>
+						<dbkey source="uniprot" detail="Medline id">MUID</dbkey>
+						<dbkey site="http://www.sanger.ac.uk/cgi-bin/Pfam/getacc?" source="uniprot" detail="PFAM id">PFAM_ID</dbkey>
+						<dbkey site="http://pir.georgetown.edu/cgi-bin/ipcSF?id=" source="uniprot" detail="PIRSF id">PIRSF_ID</dbkey>
+						<dbkey source="uniprot" detail="PRINTS id">PRINTS_ID</dbkey>
+						<dbkey source="uniprot" detail="PRODOM id">PRODOM_ID</dbkey>
+						<dbkey site="http://us.expasy.org/cgi-bin/nicesite.pl?" source="uniprot" detail="PROSITE id">PROSITE_ID</dbkey>
+						<dbkey source="uniprot" detail="PMID">PMID</dbkey>
+						<dbkey site="http://smart.embl-heidelberg.de/smart/do_annotation.pl?DOMAIN=" source="uniprot" detail="SMART id">SMART_ID</dbkey>
+						<dbkey source="uniprot" detail="TAXGRPID">TAXGRPID</dbkey>
+						<dbkey source="uniprot" detail="TIGRFAMs id">TIGRFAMS_ID</dbkey>
+            <dbkey source="uniprot" detail="TRANSFAC id">TRANSFAC_ID</dbkey>     
+      </allDBKey>
+      <querysizelimit>200</querysizelimit>
+    </protein>
+
+    <!-- Functional Level -->
+    <function site="uniprot">
+      <parameter>
+        <website>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?</website>
+        <from_sign></from_sign>
+        <to_sign></to_sign>
+        <id_sign></id_sign>
+        <queryLimit></queryLimit>
+        <other_para></other_para>
+      </parameter>
+    </function>
+    
+    <mapping>
+        <gene2protein>
+            <tsite from="BEGIN" to="protein">g</tsite>
+            <tsite from="P_GI" to="ACC">p</tsite>
+            <tsite from="ACC" to="END">p</tsite>
+        </gene2protein>
+        <protein2gene>
+            <tsite from="BEGIN" to="ACC">p</tsite>
+            <tsite from="ACC" to="P_GI">p</tsite>
+            <tsite from="protein" to="END">g</tsite>
+        </protein2gene>   
+        <protein2protein>
+            <tsite from="BEGIN" to="ACC">p</tsite>
+            <tsite from="ACC" to="END">p</tsite>
+        </protein2protein> 
+        <mappingKey>
+            <key gname="protein" pname="P_GI" fname="">GenBank GI number</key>
+            <key gname="omim" pname="MIM_ID" fname="">id of Online Mendelian Inheritance in Man(OMIM)</key>
+        </mappingKey>      
+          
+    </mapping>
+    <externalLink>
+    
+    </externalLink>
+
+</IDConfigure>
+
+
