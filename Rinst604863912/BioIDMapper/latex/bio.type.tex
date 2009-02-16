@@ -1,0 +1,30 @@
+\HeaderA{bio.type}{Get the biokey number this package support}{bio.type}
+\keyword{methods}{bio.type}
+\begin{Description}\relax
+show the biokey number this package support
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+bio.type(type_to_id)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{type\_to\_id}] If no parameter is used, return tables for all biokey numbers;
+if parameter is number from bio.type(), return the corresponding biological type; if 
+parameter is biological type, return the corresponding biokey number
+\end{ldescription}
+\end{Arguments}
+\begin{Author}\relax
+Xiaoyong Sun
+\end{Author}
+\begin{Examples}
+\begin{ExampleCode}
+
+bio.type()
+bio.type(5)
+bio.type("PDB id")
+
+\end{ExampleCode}
+\end{Examples}
+

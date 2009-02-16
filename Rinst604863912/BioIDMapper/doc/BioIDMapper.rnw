@@ -14,7 +14,6 @@
 
 \author{Xiaoyong Sun$^\dagger$$^\ddagger$\footnote{sunx1@iastate.edu}}
 
-\usepackage{c:/Software/R-2.6.0/share/texmf/Sweave}
 \begin{document}
 
 \setkeys{Gin}{width=1\textwidth} 
@@ -142,21 +141,11 @@ If argument is biological type, return the corresponding Biokey number.\newline
 [10,] "10"          "3D SDI id"            "NCBI" 
 .....
 \end{verbatim}
-\begin{Schunk}
-\begin{Sinput}
-> library(BioIDMapper)
-> bio.type(5)
-\end{Sinput}
-\begin{Soutput}
-[1] "SNP id"
-\end{Soutput}
-\begin{Sinput}
-> bio.type("SNP id")
-\end{Sinput}
-\begin{Soutput}
-[1] 5
-\end{Soutput}
-\end{Schunk}
+<<>>=
+library(BioIDMapper)
+bio.type(5)
+bio.type("SNP id")
+@
 \subsection{Mapping feature}
 \subsubsection{bio.convert}
 \begin{verbatim}
@@ -168,26 +157,11 @@ a. id\_list: id list you want to map; \newline
 b. from: Biokey number of source type; bio.type() will show all the Biokey numbers for biological types. \newline
 c. to: Biokey number of destination type; bio.type() will show all the Biokey numbers for biological types.\newline
 
-\begin{Schunk}
-\begin{Sinput}
-> data(glist)
-> myMap <- bio.convert(glist, 1, 5)
-> myMap[1:10, ]
-\end{Sinput}
-\begin{Soutput}
-   GI number snp       
-1  "200533"  "27242152"
-2  "200533"  "27242151"
-3  "200533"  "27242150"
-4  "200533"  "27242149"
-5  "200533"  "27242148"
-6  "200533"  "27242147"
-7  "200533"  "27242146"
-8  "200533"  "27242145"
-9  "200533"  "27242144"
-10 "200533"  "27242143"
-\end{Soutput}
-\end{Schunk}
+<<>>=
+data(glist)
+bio.convert(glist, 1, 5)->myMap
+myMap[1:10,]
+@
 
 \subsection{Linking feature}
 \subsubsection{bio.link}
@@ -219,37 +193,12 @@ a. result\_matrix: result matrix from bio.convert() function\newline
 b. start\_idList: the orginial id list you want to map\newline
 c. option: a logical value. If TRUE, all summary results are returned. If FALSE, only basic summary is returned. default value is FALSE \newline
 
-\begin{Schunk}
-\begin{Sinput}
-> data(glist)
-> myMap <- bio.convert(glist, 1, 5)
-> bio.sum(myMap)
-\end{Sinput}
-\begin{Soutput}
-------------------------------------------------------------------
-
-MAPPING SCHEMA:
-38 GI number  are mapped to  272 snp 
-------------------------------------------------------------------
-
-$`Summary for result`
-             GI number snp
-maping_Total        38 272
-\end{Soutput}
-\begin{Sinput}
-> mySum <- bio.sum(myMap, glist, FALSE)
-\end{Sinput}
-\begin{Soutput}
-------------------------------------------------------------------
-
-MAPPING SCHEMA:
-38 GI number  are mapped to  272 snp 
-
-MAPPING PERCENTAGE:
-100.00% GI number  are mapped to  snp 
-------------------------------------------------------------------
-\end{Soutput}
-\end{Schunk}
+<<>>=
+data(glist)
+bio.convert(glist, 1, 5)->myMap
+bio.sum(myMap)
+bio.sum(myMap, glist, FALSE)->mySum
+@
 
 \subsubsection{bio.select}
 \begin{verbatim}
@@ -261,36 +210,11 @@ a. myid: id you are interested\newline
 b. result\_matrix: result matrix from bio.convert() function\newline
 c. colno: the column number of result\_matrix that contains id you are interested.\newline
 
-\begin{Schunk}
-\begin{Sinput}
-> data(glist)
-> myMap <- bio.convert(glist, 1, 5)
-> bio.select(myMap, 1, "41386735")
-\end{Sinput}
-\begin{Soutput}
-    GI number  snp       
-609 "41386735" "43102393"
-610 "41386735" "43102392"
-611 "41386735" "43102391"
-612 "41386735" "43102390"
-613 "41386735" "43102389"
-614 "41386735" "43102388"
-615 "41386735" "43102387"
-616 "41386735" "43102386"
-617 "41386735" "43102385"
-618 "41386735" "41694775"
-619 "41386735" "41694774"
-620 "41386735" "41694773"
-621 "41386735" "41694772"
-622 "41386735" "41694771"
-623 "41386735" "41694770"
-624 "41386735" "41694769"
-625 "41386735" "41694768"
-626 "41386735" "41694767"
-627 "41386735" "41694766"
-628 "41386735" "41694765"
-\end{Soutput}
-\end{Schunk}
+<<>>=
+data(glist)
+bio.convert(glist, 1, 5)->myMap
+bio.select(myMap, 1, "41386735")
+@
 
 \section{Demonstration}
 
@@ -316,28 +240,11 @@ First, you can find Biokey number from bio.type() function,
 .....
 \end{verbatim}
 Second, you can use the bio.convert() to map from one type of id to the other type of id:
-\begin{Schunk}
-\begin{Sinput}
-> data(glist)
-> myMap <- bio.convert(glist, 1, 5)
-> myMap[80:91, ]
-\end{Sinput}
-\begin{Soutput}
-   GI number snp       
-80 "200529"  "27242149"
-81 "200529"  "27242148"
-82 "200529"  "27242147"
-83 "200529"  "27242146"
-84 "200529"  "27242145"
-85 "200529"  "27242144"
-86 "200529"  "27242143"
-87 "200529"  "27242142"
-88 "200529"  "27242141"
-89 "200529"  "27242140"
-90 "200529"  "27242139"
-91 "200529"  "27242138"
-\end{Soutput}
-\end{Schunk}
+<<>>=
+data(glist)
+bio.convert(glist, 1, 5)->myMap  # Note: 1 - gi number; 5 - snp id
+myMap[80:91,]
+@
 In addition, you can analyze the mapping result with bio.sum() function
 \begin{verbatim}
 >bio.sum(myMap)
@@ -386,35 +293,16 @@ First, you need to find out related id number in BioIDMapper package using bio.t
 [40,] "40"       "PDB id"               "UniProt"
 .....
 \end{verbatim}
-\begin{Schunk}
-\begin{Sinput}
-> bio.type("PDB id")
-\end{Sinput}
-\begin{Soutput}
-[1] 40
-\end{Soutput}
-\end{Schunk}
+<<>>=
+bio.type("PDB id")
+@
 Second, you can use the bio.convert() to map from one type of id to the other type of id:
-\begin{Schunk}
-\begin{Sinput}
-> data(ulist)
-> myMap <- bio.convert(ulist, 19, 40)
-> myMap[1:10, ]
-\end{Sinput}
-\begin{Soutput}
-   ACC      PDB_ID           
-1  "P04925" "1AG2"           
-2  "P04925" "1XYX"           
-3  "P04925" "1Y15"           
-4  "P04925" "1Y16-PDBSUM_ID-"
-5  "Q4FJQ7" "1E1G"           
-6  "Q4FJQ7" "1E1J"           
-7  "Q4FJQ7" "1E1P"           
-8  "Q4FJQ7" "1E1S"           
-9  "Q4FJQ7" "1E1U"           
-10 "Q4FJQ7" "1E1W"           
-\end{Soutput}
-\end{Schunk}
+<<>>=
+data(ulist)
+bio.convert(ulist, 19, 40)->myMap  
+# Note: 19 - UniProt Accesion number; 40 - PDB id
+myMap[1:10,]
+@
 You can also utilize bio.sum(), bio.select(), and bio.link() tools to check the related information.
 
 \subsection{Examples for mapping between NCBI and UniProt }
@@ -422,26 +310,12 @@ You can do the mapping between NCBI and Uniprot exactly as before. Currently the
 
 If  you are interested in translating UniProt Accession Number to SNP id,
 
-\begin{Schunk}
-\begin{Sinput}
-> data(ulist)
-> myMap <- bio.convert(ulist, 19, 5)
-> myMap[1:10, ]
-\end{Sinput}
-\begin{Soutput}
-      ACC   P_GI      snp
-1  P04925 200533 27242152
-2  P04925 200533 27242151
-3  P04925 200533 27242150
-4  P04925 200533 27242149
-5  P04925 200533 27242148
-6  P04925 200533 27242147
-7  P04925 200533 27242146
-8  P04925 200533 27242145
-9  P04925 200533 27242144
-10 P04925 200533 27242143
-\end{Soutput}
-\end{Schunk}
+<<>>=
+data(ulist)
+bio.convert(ulist, 19, 5)->myMap
+# Note: 19-UniProtKB Accession; 5-SNP id
+myMap[1:10,]
+@
 \section{Case study}
 To illustrate how to use these features, "chicken" data package from bioconductor.org is utilized for demonstration. The following R code enable user to map data from Entrez Gene id to UniProtKB Accession number (in the package, 24 represents Entrez Gene id, and 19 represents UniProt Accession Number).
 

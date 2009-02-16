@@ -1,0 +1,16 @@
+parse2              package:BioIDMapper              R Documentation
+
+_p_a_r_s_e _t_h_e _r_e_t_u_r_n _r_e_s_u_l_t _f_r_o_m _U_n_i_P_r_o_t
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     parse the returned id list to matrix
+
+_V_a_l_u_e:
+
+     return a matrix with mapped ids
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun
+

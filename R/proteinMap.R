@@ -62,7 +62,7 @@ function(my_list, from_type, to_type)    # my_list is matrix
       returnResult<-try(getURL(rootURL))  
       if (inherits(returnResult, "try-error"))           
           stop("\n-------------------------\nPlease check internet connection!\n-------------------------\n\n")
-      
+
       section_matrix<- parse2(returnResult)
  
       if(is.matrix(section_matrix))

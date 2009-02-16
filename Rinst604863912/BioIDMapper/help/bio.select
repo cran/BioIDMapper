@@ -1,0 +1,32 @@
+bio.select            package:BioIDMapper            R Documentation
+
+_s_e_l_e_c_t _s_u_b_s_e_t _f_r_o_m _m_a_p_p_e_d _m_a_t_r_i_x
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     use id as paramter, this function can select subste from mapping
+     result
+
+_U_s_a_g_e:
+
+     bio.select(result_matrix, colno, myid)
+
+_A_r_g_u_m_e_n_t_s:
+
+result_matrix: the returned matrix from bio.convert() 
+
+   colno: the column number from returned matrix, which contains the id
+          you are interesed 
+
+    myid: id you are interesed 
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun
+
+_E_x_a_m_p_l_e_s:
+
+     data(glist)
+     bio.convert(glist, 1, 5)->done
+     bio.select(done, 1, "200529" )
+

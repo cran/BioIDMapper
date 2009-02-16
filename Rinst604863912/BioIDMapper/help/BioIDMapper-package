@@ -1,0 +1,30 @@
+BioIDMapper-package       package:BioIDMapper       R Documentation
+
+_M_a_p_p_i_n_g _b_i_o_l_o_g_i_c_a_l _i_d_s _a_n_d _l_i_n_k_i_n_g _t_o _e_x_t_e_r_n_a_l _d_a_t_a _s_o_u_r_c_e
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     This package will map ids among different biological ids from NCBI
+     and Uniprot.  Ids will be from gene level, protein level,
+     functional level and metabolomic level.
+
+_D_e_t_a_i_l_s:
+
+
+       Package:  BioIDMapper
+       Type:     Package
+       Version:  1.0
+       Date:     2007-09-05
+       License:  What license is it under?
+
+     The main interface is bio.convert() function
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun Maintainer: johnsunx1<johnsunx1@gmail.com>
+
+_E_x_a_m_p_l_e_s:
+
+     data(glist)
+     bio.convert(glist, 1, 6)
+

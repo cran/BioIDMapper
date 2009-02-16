@@ -1,0 +1,28 @@
+geneMap             package:BioIDMapper             R Documentation
+
+_M_a_p_p_i_n_g _b_e_t_w_e_e_n _N_C_B_I
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     map between ncbi ids
+
+_U_s_a_g_e:
+
+     geneMap(my_list, from_type, to_type)
+
+_A_r_g_u_m_e_n_t_s:
+
+ my_list: 
+
+from_type: 
+
+ to_type: 
+
+_V_a_l_u_e:
+
+     return mapped result
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun
+

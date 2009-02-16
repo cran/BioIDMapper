@@ -1,0 +1,20 @@
+plist              package:BioIDMapper              R Documentation
+
+_P_D_B _i_d _l_i_s_t
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     50 protein data bank ids
+
+_U_s_a_g_e:
+
+     data(plist)
+
+_F_o_r_m_a_t:
+
+     A data frame with 50 observations on the following variable.
+
+_E_x_a_m_p_l_e_s:
+
+     data(plist)
+

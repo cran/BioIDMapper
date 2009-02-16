@@ -1,0 +1,24 @@
+parse1              package:BioIDMapper              R Documentation
+
+_p_a_r_s_e _t_h_e _r_e_t_u_r_n_e_d _r_e_s_u_l_t _f_r_o_m _N_C_B_I
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     parse the returned ID result from NCBI
+
+_U_s_a_g_e:
+
+     parse1(uri)
+
+_A_r_g_u_m_e_n_t_s:
+
+     uri: the url address for parsing data
+
+_V_a_l_u_e:
+
+     retunr parsed id list
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun
+

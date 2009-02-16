@@ -1,0 +1,28 @@
+\HeaderA{bio.select}{select subset from mapped matrix}{bio.select}
+\keyword{methods}{bio.select}
+\begin{Description}\relax
+use id as paramter, this function can select subste from mapping result
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+bio.select(result_matrix, colno, myid)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{result\_matrix}] the returned matrix from bio.convert() 
+\item[\code{colno}] the column number from returned matrix, which contains the id you are interesed 
+\item[\code{myid}] id you are interesed 
+\end{ldescription}
+\end{Arguments}
+\begin{Author}\relax
+Xiaoyong Sun
+\end{Author}
+\begin{Examples}
+\begin{ExampleCode}
+data(glist)
+bio.convert(glist, 1, 5)->done
+bio.select(done, 1, "200529" )
+\end{ExampleCode}
+\end{Examples}
+

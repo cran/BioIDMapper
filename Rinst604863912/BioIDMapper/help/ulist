@@ -1,0 +1,20 @@
+ulist              package:BioIDMapper              R Documentation
+
+_U_n_i_p_r_o_t _i_d _l_i_s_t
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     11 UniProt Accession Numbers
+
+_U_s_a_g_e:
+
+     data(ulist)
+
+_F_o_r_m_a_t:
+
+     A data frame with 11 UniProt Accession Numbers.
+
+_E_x_a_m_p_l_e_s:
+
+     data(ulist)
+

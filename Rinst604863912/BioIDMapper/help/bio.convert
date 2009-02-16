@@ -1,0 +1,45 @@
+bio.convert           package:BioIDMapper           R Documentation
+
+_M_a_i_n _I_n_t_e_r_f_a_c_e _f_o_r _M_a_p_p_i_n_g
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     This function is main interface for mapping service. It can
+     support NCBI  mapping and UniProt mapping, from gene level,
+     protein level, functional level, and metabolomic level.
+
+_U_s_a_g_e:
+
+     bio.convert(id_list = "character", from = "numeric", to = "numeric")
+
+_A_r_g_u_m_e_n_t_s:
+
+ id_list: the list of biological ids
+
+    from: Biokey number for source biological type. It can be found by
+          bio.type()
+
+      to: Biokey number for destination biological type. It can be
+          found by bio.type()
+
+_D_e_t_a_i_l_s:
+
+     It converts a list of ids from one biological type to another. For
+     detail, please check vegnette "demonstration" section.
+
+_V_a_l_u_e:
+
+     a result matrix will be returned with source type in the first
+     column and the destination type in the last column
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun
+
+_E_x_a_m_p_l_e_s:
+
+     data(glist)
+     bio.type(1)
+     bio.type(5)
+     bio.convert(glist, 1, 5)->done
+

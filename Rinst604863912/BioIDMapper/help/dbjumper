@@ -1,0 +1,30 @@
+dbjumper             package:BioIDMapper             R Documentation
+
+_P_a_r_s_e _m_a_p_p_i_n_g _p_a_t_h_w_a_y
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     parse mapping pathway for gene, protein, metabolomic
+
+_U_s_a_g_e:
+
+     dbjumper(id_list, from, to, pathMatrix)
+
+_A_r_g_u_m_e_n_t_s:
+
+ id_list: 
+
+    from: 
+
+      to: 
+
+pathMatrix: 
+
+_V_a_l_u_e:
+
+     return a matrix with mapped result
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun
+

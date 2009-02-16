@@ -1,0 +1,24 @@
+processMessage          package:BioIDMapper          R Documentation
+
+_R_e_t_u_r_n _a _m_e_s_s_a_g_e
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     return message
+
+_U_s_a_g_e:
+
+     processMessage(message)
+
+_A_r_g_u_m_e_n_t_s:
+
+ message: 
+
+_V_a_l_u_e:
+
+     return a message
+
+_A_u_t_h_o_r(_s):
+
+     Xiaoyong Sun
+

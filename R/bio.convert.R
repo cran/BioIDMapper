@@ -16,10 +16,10 @@ function(id_list = "character",
     {
         processMessage("Usage:   convert(ids, from, to)")
         processMessage("     ids:      vector of known ids")
-        processMessage("     from:     types of ids. check biotype()")
-        processMessage("     to:       types of ids. check biotype()")
-        processMessage("Example 1: convert(c(\"6456604\", \"23396823\"), 1, 5)")
-        processMessage("Example 2: convert(glist, 1, 5)")
+        processMessage("     from:     types of ids. check bio.type()")
+        processMessage("     to:       types of ids. check bio.type()")
+        processMessage("Example 1: bio.convert(c(\"6456604\", \"23396823\"), 1, 5)")
+        processMessage("Example 2: bio.convert(glist, 1, 5)")
         return(processMessage("Done."))
     }
 
