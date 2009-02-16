@@ -17,21 +17,28 @@ function(uri)
     myData<-parseXML$doc$children[[1]]
     childSet<-xmlChildren(myData)
     
-    if(!is.null(childSet[[root_level]][[to_level_0]][[to_level_1]][[to_level_2]]))
+    #if(!is.null(childSet[[root_level]][[to_level_0]][[to_level_1]][[to_level_2]]))
+    #{
+    if ( length(grep("^Link$", unlist(childSet))) > 0 )
     {
-        from_col<-NULL
-        to_col<-NULL
+        from_col <- NULL
+        to_col <- NULL
         for (i in 1: length(childSet))
         {
-            from_id<-xmlValue(childSet[[i]][[from_level_1]][[from_level_2]])
-            if (!is.null(childSet[[i]][[to_level_0]][[to_level_1]][[to_level_2]]) )
+            from_id <- xmlValue(childSet[[i]][[from_level_1]][[from_level_2]])
+            #if (!is.null(childSet[[i]][[to_level_0]][[to_level_1]][[to_level_2]]) )
+            #{
+            if (  length(grep("^Link$", unlist(childSet[[i]]))) > 0 )
             {
-                for (j in 3:length(xmlChildren(childSet[[i]][[to_level_0]])))
-                {
-                     to_id<-xmlValue(childSet[[i]][[to_level_0]][[j]][[to_level_2]])
-                     from_col<-rbind(from_col, from_id)
-                     to_col<-rbind(to_col, to_id)
-                }
+
+               myset <- unlist(childSet[[i]])
+               idPos <- grep("^Id$", myset)
+               idPos <- idPos[-1] # get rid of "from" ID
+               matchPos <- idPos + 2
+               matchID <- myset[matchPos]
+               names(matchID) <- NULL
+               to_col <- c(to_col, matchID)
+               from_col <- c(from_col, rep(from_id, length(matchID)))
             }
         }
         return_matrix<-cbind(from_col, to_col)

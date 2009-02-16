@@ -77,7 +77,7 @@ function(id_list = "character",
     g2pFile<-allPara$g2p
     p2gFile<-allPara$p2g
     p2pFile<-allPara$p2p
-   
+
     ## start mapping
     if (from <= no_boundaryType && to <= no_boundaryType)
     {

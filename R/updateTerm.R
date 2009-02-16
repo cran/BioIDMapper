@@ -3,7 +3,7 @@
 ## non-access to user
 ## Jan.29, 2008
 
-updateTerm <-
+`updateTerm` <-
 function(biourl)
 {
   require(XML)

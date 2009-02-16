@@ -43,7 +43,7 @@
     <!-- Protein Level -->
     <protein site="uniprot">
       <parameter>
-        <website label="rootURL">pir11.georgetown.edu/cgi-bin/idmapping_http_client?</website>
+        <website label="rootURL">pir15.georgetown.edu/cgi-bin/idmapping_http_client?</website>
         <from_sign label="from_sign">from=</from_sign>
         <to_sign label="to_sign">&amp;to=</to_sign>
         <id_sign label="id_sign">&amp;ids=</id_sign>

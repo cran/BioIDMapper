@@ -1,1 +1,0 @@
-export(bio.convert, bio.type, bio.sum, bio.link, bio.select, updateTerm)

@@ -160,7 +160,7 @@ c. to: Biokey number of destination type; bio.type() will show all the Biokey nu
 <<>>=
 data(glist)
 bio.convert(glist, 1, 5)->myMap
-myMap[1:10,]
+#myMap[1:10,]
 @
 
 \subsection{Linking feature}
@@ -243,7 +243,7 @@ Second, you can use the bio.convert() to map from one type of id to the other ty
 <<>>=
 data(glist)
 bio.convert(glist, 1, 5)->myMap  # Note: 1 - gi number; 5 - snp id
-myMap[80:91,]
+#myMap[80:91,]
 @
 In addition, you can analyze the mapping result with bio.sum() function
 \begin{verbatim}
@@ -301,7 +301,7 @@ Second, you can use the bio.convert() to map from one type of id to the other ty
 data(ulist)
 bio.convert(ulist, 19, 40)->myMap  
 # Note: 19 - UniProt Accesion number; 40 - PDB id
-myMap[1:10,]
+#myMap[1:10,]
 @
 You can also utilize bio.sum(), bio.select(), and bio.link() tools to check the related information.
 
@@ -314,7 +314,7 @@ If  you are interested in translating UniProt Accession Number to SNP id,
 data(ulist)
 bio.convert(ulist, 19, 5)->myMap
 # Note: 19-UniProtKB Accession; 5-SNP id
-myMap[1:10,]
+#myMap[1:10,]
 @
 \section{Case study}
 To illustrate how to use these features, "chicken" data package from bioconductor.org is utilized for demonstration. The following R code enable user to map data from Entrez Gene id to UniProtKB Accession number (in the package, 24 represents Entrez Gene id, and 19 represents UniProt Accession Number).
