@@ -45,11 +45,11 @@ b. Install R package, XML: \textit{install.packages("XML")} \newline \newline
 3. Install RGtk2 (Please see RGtk2 Installation notes if you have problems) \newline
 a. Install GTK+ (>= 2.8.0) \newline
 b. Install R package, RGtk2: \textit{install.packages("RGtk2")} \newline \newline
-4. Install gWidgets:
+4. Install gWidgets  \newline
 a. Install R package, gWidgets: \textit{install.packages("gWidgets")} \newline \newline
-5. Install gWidgetsRGtk2
+5. Install gWidgetsRGtk2 \newline
 a. Install R package, gWidgetsRGtk2: \textit{install.packages("gWidgetsRGtk2")} \newline \newline
-6. Install lattice
+6. Install lattice  \newline
 a. Install R package, lattice: \textit{install.packages("lattice")} \newline \newline
 \section{BioID mapping table}
 In this package, the following 59 BioIDs can be translated to each other. \newline \newline
@@ -324,7 +324,7 @@ Exit from the program.
 To illustrate how to use this package, three examples are used, including mapping within NCBI, UniProt respectively, and mapping between NCBI and UniProt, to show how to translate different biological ids .
 
 \subsection{Examples for mapping within NCBI}
-Let's assume that  you have 500 Genbank gi numbers, and you are interested in related snp ids.
+Let's assume that you have 500 Genbank gi numbers, and you are interested in related snp ids.
 \newline \newline
 First, you can find Biokey number from bio.type() function,
 \begin{verbatim}
@@ -420,6 +420,37 @@ myMap <- bio.convert(ulist, 19, 5)
 # Note: 19-UniProtKB Accession; 5-SNP id
 #myMap[1:10,]
 @
+\subsection{Examples for mapping using Graphical User Interface}
+GUI in BioIDMapper provides a convenient managing platform for users. Let's see how to
+map hundreds of Genbank gi numbers (data: glist).
+\newline \newline
+1. Start GUI with function: bio.gui()
+\newline \newline
+2. Input Source IDs:  \newline
+click OPEN button on the toolbar. There are two parameters: \newline
+a. Read data from R environment: the data should already be attached and available. \newline
+b. Source ID type: this ID type should match the input data. \newline \newline
+For this example, we input "glist" as data and choose "GI number" as source ID type.
+\newline \newline
+3. Choose Destination IDs:  \newline
+click PREFERENCE button on the toolbar. Select interested IDs and move them
+from left column to the right column by clicking moving button in the middle. 
+\newline \newline
+For this data, let's choose "Pubmed ID" and "PDB" ID as destination IDs for our data set. Click "Go to next step" to
+finish configuration.
+\newline \newline
+4. Map or cross-referencing \newline
+click CONVERT button on the toolbar, and it will begin to map from source ID type to
+destination ID type. You can track working progress with a progress bar on top of the main GUI.
+\newline \newline
+5. Connect \newline
+click CONNECT button on the toolbar, choose biological ID type and interested multiple IDs. This function will connect to external data sources for selected IDs. 
+\newline \newline
+6. Subset, evaluate, plot \newline
+Subset, connect, evaluate and plot buttons help user to subset interesting ID groups, evaluate mapping results, 
+and display final mapping graphically. The final mapping is plotted as dot plot with X: Source IDs, and 
+Y: frequency of source ID involved in the final mapping.
+\newline \newline
 \section{Case study}
 To illustrate how to use these features, "chicken.db" data package from bioconductor.org is utilized for demonstration. The following R code enable user to map data from Entrez Gene id to UniProtKB Accession number (in the package, 24 represents Entrez Gene id, and 19 represents UniProt Accession Number).
 
@@ -445,6 +476,26 @@ In addition, the data analysis module offers services to summarize mapping resul
 \begin{verbatim}
 >bio.sum(result, myList, F)
 \end{verbatim}
+Let's look at how to analyze the results in graphical user interface. Before we start GUI,
+we need to have data in the R environment.
+\begin{verbatim}
+# load "chicken" data package from Bioconductor
+>library(chicken.db)
+>xx <- as.list(chickenENTREZID)
+
+# collect multiple entries for one probe and delete "NA" entries. 
+>uxx <- unlist(xx)
+>myList <- unique(as.matrix(uxx[!is.na(uxx)]))
+
+# change IDs to data.frame format
+>myList <- data.frame(myList[1:100])
+\end{verbatim}
+Now we can start GUI,
+\begin{verbatim}
+>bio.gui()
+\end{verbatim}
+In OPEN dialog, input "myList" as data and "Entrez Gene ID" as biological ID type. Then you can 
+proceed to manage CONVERT (mapping to destination IDs), SUBSET, LINK, EVALUATE and PLOT operations.
 
 \end{document}
 

@@ -1,4 +1,4 @@
 export(bio.convert, bio.type, bio.sum, bio.link, bio.select, updateTerm, bio.gui)
 
-import("RCurl", "XML", "RGtk2", "gWidgetsRGtk2", "lattice")
+import("RGtk2", "gWidgets")
 
