@@ -7,15 +7,15 @@ function(type_to_id)
 {
   id2term<-.exp$gettype()
   if (missing(type_to_id))
-  { 
+  {
 
-     detail<-as.matrix(id2term[,2])
+     detail<-data.frame(id2term[,2])
      sepa<-which(detail=="NNNNNN")
      rname<-rep(c("NCBI", "Boundary", "UniProt"), c(sepa-1, 1, nrow(detail)-sepa))
      detail<-cbind(seq(1, nrow(detail)),detail,rname)
      colnames(detail)<-c("Biokey number", "BioIDs", "Sources")
-     return(as.matrix(detail))
-     
+     return(data.frame(detail))
+
   }
 
   if (is.numeric(type_to_id)) return(id2term[type_to_id,2])

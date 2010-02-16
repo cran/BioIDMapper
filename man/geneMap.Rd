@@ -10,9 +10,9 @@ geneMap(my_list, from_type, to_type)
 }
 
 \arguments{
-  \item{my_list}{ }
-  \item{from_type}{}
-  \item{to_type}{}
+  \item{my_list}{the list of biological ids }
+  \item{from_type}{biological source type}
+  \item{to_type}{destination source type}
 }
 
 

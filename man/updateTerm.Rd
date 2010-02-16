@@ -11,7 +11,7 @@ updateTerm(biourl)
 }
 
 \arguments{
-  \item{biourl}{}
+  \item{biourl}{a url for updating new configuration}
 }
 
 \author{Xiaoyng Sun }

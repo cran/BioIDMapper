@@ -10,7 +10,7 @@ processMessage(message)
 }
 
 \arguments{
-  \item{message}{ }
+  \item{message}{a character vector for warning message}
 
 }
 

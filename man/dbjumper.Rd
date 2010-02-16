@@ -10,10 +10,10 @@ dbjumper(id_list, from, to, pathMatrix)
 }
 
 \arguments{
-  \item{id_list}{ }
-  \item{from}{ }
-  \item{to}{ }
-  \item{pathMatrix}{  }
+  \item{id_list}{the list of biological ids}
+  \item{from}{Biokey number for source biological type. It can be found by bio.type()}
+  \item{to}{Biokey number for destination biological type. It can be found by bio.type()}
+  \item{pathMatrix}{mapping schema}
 }
 
 \value{
