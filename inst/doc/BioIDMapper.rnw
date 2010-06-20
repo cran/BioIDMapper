@@ -33,6 +33,15 @@ Many new databases aiming at genes and proteins are developed as more and more s
 From version 2.0, users have options to utilize a graphical framework to manage ID mapping.
 The graphical user interace requires installation of GTK and additional R libraries. The detailed
 example is in section: Graphical user interface.
+\section{Citation}
+\begin{verbatim}
+Xiaoyong Sun, Michael Lawrence, Zhaoquan Liu, Zhongxu Sun.
+BioIDMapper: a Cross-referencing and Managing Platform 
+for Biological IDs in R. the 3rd International Conference on 
+BioMedical Engineering and Informatics (BMEI 2010).
+Oct 16-18, 2010. Yantai, China.
+\end{verbatim}
+
 \section{Installation}
 BioIDMapper needs to install the following programs and R packages:
 \newline \newline
@@ -127,6 +136,7 @@ as bridge between two databases. \newline
 60	& TRANSFAC id &	UniProt          \\
 \end{tabular}
 \end{center}
+
 
 \section{Function description} 
 This package includes one standard mapping table displayed by bio.type()function, and three features: mapping, linking and data analysis. 

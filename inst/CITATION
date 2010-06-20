@@ -1,0 +1,14 @@
+citHeader("How to cite BioIDMapper:")
+
+citEntry(entry = "proceedings",
+  author = "Xiaoyong Sun, Michael Lawrence, Zhaoquan Liu, Zhongxu Sun",
+  title = "BioIDMapper: a Cross-referencing and Managing Platform for Biological IDs in R",
+  publisher = "Springer New York",
+  journal = "the 3rd International Conference on BioMedical Engineering and Informatics (BMEI 2010)",
+  year = "2009",
+  pages = "2449-2451",
+  textVersion = "Xiaoyong Sun, Michael Lawrence, Zhaoquan Liu, Zhongxu Sun.
+                BioIDMapper: a Cross-referencing and Managing Platform for Biological IDs in R.
+                the 3rd International Conference on BioMedical Engineering and Informatics (BMEI 2010).
+                Oct 16-18, 2010. Yantai, China."
+)

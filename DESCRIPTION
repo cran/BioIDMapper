@@ -1,6 +1,6 @@
 Package: BioIDMapper
 Title: Mapping between BioIDs
-Version: 2.2
+Version: 2.3
 Date: 2010-06-20
 Depends: R (>= 2.7.0), RCurl, XML, lattice, gWidgetsRGtk2 (>= 0.0-36)
 Imports: RGtk2 (>= 2.12.8), gWidgets (>= 0.0-31)
@@ -17,5 +17,5 @@ Collate: updateTerm.R global.R bio.convert.R bio.link.R bio.sum.R
         processMessage.R proteinMap.R validate.R gui.function.R
         gui.initial.R bio.gui.R
 Repository: CRAN
-Date/Publication: 2010-06-22 08:28:42
-Packaged: 2010-06-22 03:03:16 UTC; sunx1
+Date/Publication: 2010-10-19 07:30:51
+Packaged: 2010-10-19 04:46:19 UTC; sunx1
