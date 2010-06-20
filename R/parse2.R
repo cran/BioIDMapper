@@ -32,13 +32,17 @@
     return(oneresult)
 }
 
+## Uniprot modification
 `parse2` <-
-function(returnHtml)
-{   
+function(returnHtml0)
+{
     from_col<-NULL
     to_col<-NULL
-    returnHtml<-gsub(" ", "", returnHtml)
-    totalIDPair<-noquote(strsplit(returnHtml, "\n")[[1]])
+    returnHtml0<-gsub(" ", "", returnHtml0)
+    
+    # Modification 06/20/2010
+    returnHtml <- unlist(strsplit(returnHtml0, "\r\n\r\n"))[1]
+    totalIDPair<-noquote(strsplit(returnHtml, "\r\n")[[1]])
     for (i in 1: length(totalIDPair))
     {
         if (strsplit(totalIDPair[[i]], "\r") == "")

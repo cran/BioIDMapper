@@ -12,7 +12,7 @@
 \newcommand{\Rclass}[1]{{\textit{#1}}}
 \newcommand{\Rmethod}[1]{{\textit{#1}}}
 
-\author{Xiaoyong Sun$^\dagger$$^\ddagger$\footnote{sunx1@iastate.edu}}
+\author{Xiaoyong Sun$^\dagger$$^\ddagger$\footnote{johnsunx1@gmail.com}}
 
 \begin{document}
 

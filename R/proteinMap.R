@@ -64,7 +64,7 @@ function(my_list, from_type, to_type)    # my_list is matrix
           stop("\n-------------------------\nPlease check internet connection!\n-------------------------\n\n")
 
       section_matrix<- parse2(returnResult)
- 
+
       if(is.matrix(section_matrix))
       {
           final_matrix<-rbind(final_matrix, section_matrix)
