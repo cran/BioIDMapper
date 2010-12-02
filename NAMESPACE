@@ -1,4 +1,3 @@
-export(bio.convert, bio.type, bio.sum, bio.link, bio.select, updateTerm, bio.gui)
+export(bio.convert, bio.type, bio.sum, bio.link, bio.select, updateTerm)
 
-import("RGtk2", "gWidgets")
 

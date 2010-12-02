@@ -27,12 +27,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
-Many new databases aiming at genes and proteins are developed as more and more species are sequenced. It becomes tedious job about how to navigate among different data resources, map various IDs, and analyze separate biological knowledge.  Current popular databases include Entrez Gene, UniProt, Gene Ontology, EMBL, OMIM, PubMed, KEGG, etc. Based on NCBI, UniProt, KEGG and other web services,  BioIDMapper can facilitate mapping between different databases, integrate various ID systems and provide a full view from gene level, mRNA level and functional level regarding one specific ID. This package is based on NCBI and UniProt websites, utilizing two packages: XML and RCurl.
+Many new databases aiming at genes and proteins are developed as more and more species are sequenced. It becomes tedious job about how to navigate among different data resources, map various IDs, and analyze separate biological knowledge.  Current popular databases include Entrez Gene, UniProt, Gene Ontology, EMBL, OMIM, PubMed, KEGG, etc. BioIDMapper can facilitate mapping between different databases, integrate various ID systems and provide a full view from gene level, mRNA level and functional level regarding one specific ID. This package is based on NCBI and UniProt websites, utilizing two packages: XML and RCurl.\newline
 \newline
-\newline
-From version 2.0, users have options to utilize a graphical framework to manage ID mapping.
-The graphical user interace requires installation of GTK and additional R libraries. The detailed
-example is in section: Graphical user interface.
+From version 3.0, BioIDMapper does not include graphical user interface any more. 
 \section{Citation}
 \begin{verbatim}
 Xiaoyong Sun, Michael Lawrence, Zhaoquan Liu, Zhongxu Sun.
@@ -43,29 +40,20 @@ Oct 16-18, 2010. Yantai, China.
 \end{verbatim}
 
 \section{Installation}
-BioIDMapper needs to install the following programs and R packages:
+Please install:
 \newline \newline
 1. Install RCurl \newline
 a. Install curl (version 7.14.0 or higher) http://curl.haxx.se \newline
-b. Install R package, RCurl: \textit{install.packages("Rcurl")} \newline \newline
+b. Install R package, RCurl: \textit{install.packages(``Rcurl'')} \newline \newline
 2. Install XML (Please see XML Installation notes if you have problems)\newline
 a. Install libxml2 (>= 2.6.3) \newline
-b. Install R package, XML: \textit{install.packages("XML")} \newline \newline
-3. Install RGtk2 (Please see RGtk2 Installation notes if you have problems) \newline
-a. Install GTK+ (>= 2.8.0) \newline
-b. Install R package, RGtk2: \textit{install.packages("RGtk2")} \newline \newline
-4. Install gWidgets  \newline
-a. Install R package, gWidgets: \textit{install.packages("gWidgets")} \newline \newline
-5. Install gWidgetsRGtk2 \newline
-a. Install R package, gWidgetsRGtk2: \textit{install.packages("gWidgetsRGtk2")} \newline \newline
-6. Install lattice  \newline
-a. Install R package, lattice: \textit{install.packages("lattice")} \newline \newline
+b. Install R package, XML: \textit{install.packages(``XML'')} \newline \newline
 \section{BioID mapping table}
 In this package, the following 59 BioIDs can be translated to each other. \newline \newline
-\textit{Note:} \newline
-(1)"GI number" shows in both NCBI and UniPort databases, and it serves
+\textbf{Note:} \newline
+(1) ``GI number'' shows in both NCBI and UniPort databases, and it serves
 as bridge between two databases. \newline
-(2) "Biokey number" is the "currency" connecting functions.\newline
+(2) ``Biokey number'' is the currency connecting functions.\newline
 
 \begin{center}
 \begin{tabular}{ l l l}
@@ -139,26 +127,28 @@ as bridge between two databases. \newline
 
 
 \section{Function description} 
-This package includes one standard mapping table displayed by bio.type()function, and three features: mapping, linking and data analysis. 
-Mapping feature is implemented by bio.convert() function; linking feature involves bio.link() function, 
-and data analysis is done by 2 functions: bio.sum() and bio.select().
+This package includes one standard mapping table displayed by \texttt{bio.type()}function, and three features: mapping, linking and data analysis. 
+Mapping feature is implemented by \texttt{bio.convert()} function; linking feature involves \texttt{bio.link()} function, 
+and data analysis is done by 2 functions: \texttt{bio.sum()} and \texttt{bio.select()}.
 
 \subsection{Retrieve mapping table}
 \subsubsection{bio.type}
 \begin{verbatim}
-bio.type <-function(type2id)
+bio.type(type2id)
 \end{verbatim}
-Show all Biokey numbers, and biological types that this package can handle. Presently 59 biological types are included in the package.
+Show all Biokey numbers, or biological types that this package can handle. Presently 59 biological types are included in the package.
 \newline  \newline
-It takes one parameters: \newline
+It takes one parameter: \newline
 a. type2id \newline
 Biokey number or BioIDs (biological types) from BioID mapping table; \newline
-If no argument is used, return BioID mapping table for all biokey numbers;\newline
-If argument is Biokey number from bio.type(), return the corresponding biological type;\newline 
-If argument is biological type, return the corresponding Biokey number.\newline
+\begin{itemize}
+\item If no argument is used, BioID mapping table for all biokey numbers is returned;
+ \item If argument is Biokey number from \texttt{bio.type()}, the corresponding biological type is returned;
+ \item If argument is biological type,  the corresponding Biokey number is returned.
+\end{itemize}
 
 \begin{verbatim}
->bio.type()
+> bio.type()
 
       Biokey number BioIDs                 Sources   
  [1,] "1"           "GI number"            "NCBI"    
@@ -181,17 +171,17 @@ bio.type("SNP id")
 \subsection{Mapping feature}
 \subsubsection{bio.convert}
 \begin{verbatim}
-bio.convert <-function(id_list, from, to)
+bio.convert(id_list, from, to)
 \end{verbatim}
 This is the main interface for mapping ids.
-It takes three parameters: \newline
+It takes three parameters: \newline \newline
 a. id\_list: id list you want to map; \newline 
-b. from: Biokey number of source type; bio.type() will show all the Biokey numbers for biological types. \newline
-c. to: Biokey number of destination type; bio.type() will show all the Biokey numbers for biological types.\newline
+b. from: Biokey number of source type; \texttt{bio.type()} will show all the Biokey numbers for biological types. \newline
+c. to: Biokey number of destination type; \texttt{bio.type()} will show all the Biokey numbers for biological types.\newline
 
 <<>>=
 data(glist)
-bio.convert(glist, 1, 5)->myMap
+myMap <- bio.convert(glist, 1, 5)
 #myMap[1:10,]
 @
 
@@ -199,33 +189,32 @@ bio.convert(glist, 1, 5)->myMap
 \subsubsection{bio.link}
 
 \begin{verbatim}
-bio.link <-function(id, to)
+bio.link(id, to)
 \end{verbatim}
 This is the main interface for linking to external data sources. 
 It will start web browser, and link that id to external data source.\linebreak[2]
 It takes two parameters: \newline
 \newline
 a. id: id you want to link;  \newline
-b. to: The corresponding Biokey number of external biology types you want to link; bio.type() will show all Biokey number for biological types. \newline
+b. to: The corresponding Biokey number of external biology types you want to link; \texttt{bio.type()} will show all Biokey number for biological types. \newline
 \newline
-\textit{Note:} \newline 
-"id" should match "to". For example, id: "27242148" is "SNP id"; to: 5 is Biokey number for "SNP id".
-
+\textbf{Note:} \newline 
+The first parameter ``id'' should match the second parameter ``to''. For example, id :``27242148'' is ``SNP id''; to: 5 is Biokey number for ``SNP id''.
 \begin{verbatim}
->bio.link("27242148", 5)
+> bio.link("27242148", 5)
 \end{verbatim}
 
 \subsection{Data analysis feature}
-This feature is to analyze result from mapping function: bio.convert().
+This feature is to analyze results from mapping function: \texttt{bio.convert()}.
 \subsubsection{bio.sum}
 \begin{verbatim}
-	bio.sum <- function(result_matrix, start_idList, option)
+	bio.sum(result_matrix, start_idList, option)
 \end{verbatim}
-Summary the result after mapping. \linebreak[2]
-It takes three parameters: \newline
-a. result\_matrix: result matrix from bio.convert() function\newline
+Summary the results after mapping. \linebreak[2]
+It takes three parameters: \newline \newline
+a. result\_matrix: result matrix from \texttt{bio.convert()} function\newline
 b. start\_idList: the orginial id list you want to map\newline
-c. option: a logical value. If TRUE, all summary results are returned. If FALSE, only basic summary is returned. default value is FALSE \newline
+c. option: a logical value. If TRUE, all summary results are returned. If FALSE, only basic summary is returned. The default value is FALSE \newline
 
 <<>>=
 data(glist)
@@ -236,12 +225,12 @@ mySum <- bio.sum(myMap, glist, FALSE)
 
 \subsubsection{bio.select}
 \begin{verbatim}
-bio.select <- function(myid, result_matrix, colno)
+bio.select(myid, result_matrix, colno)
 \end{verbatim}
-Show mapping result for one id.
-It takes three parameters: \newline
+Show mapping results for one id.
+It takes three parameters: \newline \newline
 a. myid: id you are interested\newline
-b. result\_matrix: result matrix from bio.convert() function\newline
+b. result\_matrix: result matrix from \texttt{bio.convert()} function\newline
 c. colno: the column number of result\_matrix that contains id you are interested.\newline
 
 <<>>=
@@ -249,85 +238,6 @@ data(glist)
 myMap <- bio.convert(glist, 1, 5)
 bio.select(myMap, 1, "41386735")
 @
-\subsection{Graphical user interface}
-From BioIDMapper version 2.0, users will have a graphical framework for managing ID mapping.
-The graphical user interface provides a convenient, flexiable environment to convert, subset,
-link and summarize target IDs.
-\newline
-\newline
-To utilize this framework, users have to install GTK library and four R libraries: RGtk2,
-gWidgets, gWidgetsRGtk2 and lattice.
-\newline
-\newline
-\subsubsection{Additional installation for GUI}
-1. install GTK \newline
-For Windows, you can download the GTK Developer's Pack from
-\newline
-   http://gladewin32.sourceforge.net/
-\newline
-\newline
-For Unix, you can fetch the source files for the different
-libraries from
-\newline
-   ftp://ftp.gtk.org/pub/gtk/v2.8/
-\newline
-\newline
-2. install additional R libraries: RGtk2, gWidgets, gWidgetsRGtk2 and lattice
-\subsubsection{Features for GUI}
-In graphical user interface of BioIDMapper, there are 9 features, including
-open, preferences, convert, subset, connect, evaluate, plot, save, and quit.
-\begin{figure}[htp]
-\centering
-\includegraphics{gui.jpg}
-\caption{Menu for BioIDMapper}
-\label{fig:test}
-\end{figure}
-1. open
-\newline
-Users can utilize this option to input IDs for conversion.
-\newline
-\newline
-2. preferences
-\newline
-This option helps user to pick destination IDs for conversion. It should be chosen before the next step: convert.
-\newline
-\newline
-3. convert
-\newline
-This function is similar to bio.convert. It utilizes the target IDs from "open", and the destination IDs
-from "preferences". Users can pick more than 1 destination IDs, and a process bar will mark the process of
-conversion.
-\newline
-\newline
-4. subset
-\newline
-This function is similar to bio.select, which is utilized for subsetting the current data in the main panel.
-\newline
-\newline
-5. connect
-\newline
-This function is similar to bio.link, which links to extern sources for certain ID.
-\newline
-\newline
-6. evaluate
-\newline
-This function is similar to simple function of bio.sum, which summarize the mapping results.
-\newline
-\newline
-7. plot
-\newline
-This function is similar to complex function of bio.sum, which summarize the results with
-detailed tables and graphs.
-\newline
-\newline
-8. save
-\newline
-This function helps user to save either mapping results, subset results or summaries in txt format.
-\newline
-\newline
-9. quit
-\newline
-Exit from the program.
 
 \section{Demonstration}
 
@@ -336,7 +246,7 @@ To illustrate how to use this package, three examples are used, including mappin
 \subsection{Examples for mapping within NCBI}
 Let's assume that you have 500 Genbank gi numbers, and you are interested in related snp ids.
 \newline \newline
-First, you can find Biokey number from bio.type() function,
+First, you can find Biokey number from \texttt{bio.type()} function,
 \begin{verbatim}
 > bio.type()
 
@@ -353,15 +263,15 @@ First, you can find Biokey number from bio.type() function,
 [10,] "10"          "3D SDI id"            "NCBI" 
 .....
 \end{verbatim}
-Second, you can use the bio.convert() to map from one type of id to the other type of id:
+Second, you can use the \texttt{bio.convert()} to map from one type of id to the other type of id:
 <<>>=
 data(glist)
-bio.convert(glist, 1, 5)->myMap  # Note: 1 - gi number; 5 - snp id
+myMap <- bio.convert(glist, 1, 5) # Note: 1 - gi number; 5 - snp id
 #myMap[80:91,]
 @
-In addition, you can analyze the mapping result with bio.sum() function
+In addition, you can analyze the mapping result with \texttt{bio.sum()} function
 \begin{verbatim}
->bio.sum(myMap)
+> bio.sum(myMap)
 
           [,1]      [,2]
           "protein" "snp"
@@ -369,16 +279,17 @@ mappingNo "38"      "272"
 \end{verbatim}
 Also, you can select the id you are interested from result:
  \begin{verbatim}
->bio.select(myMap, 1, "200529")
+> bio.select(myMap, 1, "200529")
 \end{verbatim}
-Finally, you can check the detailed information about snp with id: "27242138" using bio.link(), and it will give you more detailed information from web browser.
+Finally, you can check the detailed information about snp with id: ``27242138'' using \texttt{bio.link()}, and it will give you more detailed information from web browser.
 \begin{verbatim}
->bio.link("27242138", 5)
+> bio.link("27242138", 5)
 \end{verbatim}
 
 \subsection{Examples for mapping within UniProt}
 
 Assume that we have 10 UniProt Accession numbers, and let's find the related PDB ids.\newline
+\newline
 First, you need to find out related id number in BioIDMapper package using bio.type function:
 \begin{verbatim}
 > bio.type()
@@ -410,17 +321,17 @@ First, you need to find out related id number in BioIDMapper package using bio.t
 <<>>=
 bio.type("PDB id")
 @
-Second, you can use the bio.convert() to map from one type of id to the other type of id:
+Second, you can use the \texttt{bio.convert()} to map from one type of id to the other type of id:
 <<>>=
 data(ulist)
-bio.convert(ulist, 19, 40)->myMap  
+myMap <- bio.convert(ulist, 19, 40)  
 # Note: 19 - UniProt Accesion number; 40 - PDB id
 #myMap[1:10,]
 @
-You can also utilize bio.sum(), bio.select(), and bio.link() tools to check the related information.
+You can also utilize \texttt{bio.sum()}, \texttt{bio.select()}, and \texttt{bio.link()} tools to check the related information.
 
 \subsection{Examples for mapping between NCBI and UniProt }
-You can do the mapping between NCBI and Uniprot exactly as before. Currently the bridge is "GI number" between the mapping of NCBI and Uniprot.  
+You can do the mapping between NCBI and Uniprot exactly as before. Currently the bridge is ``GI number'' between the mapping of NCBI and Uniprot.  
 \newline \newline
 If  you are interested in translating UniProt Accession Number to SNP id,
 
@@ -430,82 +341,30 @@ myMap <- bio.convert(ulist, 19, 5)
 # Note: 19-UniProtKB Accession; 5-SNP id
 #myMap[1:10,]
 @
-\subsection{Examples for mapping using Graphical User Interface}
-GUI in BioIDMapper provides a convenient managing platform for users. Let's see how to
-map hundreds of Genbank gi numbers (data: glist).
-\newline \newline
-1. Start GUI with function: bio.gui()
-\newline \newline
-2. Input Source IDs:  \newline
-click OPEN button on the toolbar. There are two parameters: \newline
-a. Read data from R environment: the data should already be attached and available. \newline
-b. Source ID type: this ID type should match the input data. \newline \newline
-For this example, we input "glist" as data and choose "GI number" as source ID type.
-\newline \newline
-3. Choose Destination IDs:  \newline
-click PREFERENCE button on the toolbar. Select interested IDs and move them
-from left column to the right column by clicking moving button in the middle. 
-\newline \newline
-For this data, let's choose "Pubmed ID" and "PDB" ID as destination IDs for our data set. Click "Go to next step" to
-finish configuration.
-\newline \newline
-4. Map or cross-referencing \newline
-click CONVERT button on the toolbar, and it will begin to map from source ID type to
-destination ID type. You can track working progress with a progress bar on top of the main GUI.
-\newline \newline
-5. Connect \newline
-click CONNECT button on the toolbar, choose biological ID type and interested multiple IDs. This function will connect to external data sources for selected IDs. 
-\newline \newline
-6. Subset, evaluate, plot \newline
-Subset, connect, evaluate and plot buttons help user to subset interesting ID groups, evaluate mapping results, 
-and display final mapping graphically. The final mapping is plotted as dot plot with X: Source IDs, and 
-Y: frequency of source ID involved in the final mapping.
-\newline \newline
 \section{Case study}
-To illustrate how to use these features, "chicken.db" data package from bioconductor.org is utilized for demonstration. The following R code enable user to map data from Entrez Gene id to UniProtKB Accession number (in the package, 24 represents Entrez Gene id, and 19 represents UniProt Accession Number).
-
+To illustrate how to use these features, ``chicken.db'' data package from bioconductor.org is utilized for demonstration. The following R scripts enable users to map data from Entrez Gene id to UniProtKB Accession number (in the package, 24 represents Entrez Gene id, and 19 represents UniProt Accession Number).
 \begin{verbatim}
 # load "chicken" data package from Bioconductor
->library(chicken.db)
->xx <- as.list(chickenENTREZID)
+> library(chicken.db)
+> xx <- as.list(chickenENTREZID)
 
 # collect multiple entries for one probe and delete "NA" entries. 
->uxx <- unlist(xx)
->myList <- unique(as.matrix(uxx[!is.na(uxx)]))
+> uxx <- unlist(xx)
+> myList <- unique(as.matrix(uxx[!is.na(uxx)]))
 
 # map the Entrez Gene id to UniProt Accession Number
->library(BioIDMapper)
->result <- bio.convert(myList, 24, 19)
+> library(BioIDMapper)
+> result <- bio.convert(myList, 24, 19)
 \end{verbatim}
 
 Also, the result can be linked directly to the related database website for more detailed information about that specific ID.
 \begin{verbatim}
->bio.link(result[2,2],19) 
+> bio.link(result[2,2],19) 
 \end{verbatim}
 In addition, the data analysis module offers services to summarize mapping results. 
 \begin{verbatim}
->bio.sum(result, myList, F)
+> bio.sum(result, myList, F)
 \end{verbatim}
-Let's look at how to analyze the results in graphical user interface. Before we start GUI,
-we need to have data in the R environment.
-\begin{verbatim}
-# load "chicken" data package from Bioconductor
->library(chicken.db)
->xx <- as.list(chickenENTREZID)
-
-# collect multiple entries for one probe and delete "NA" entries. 
->uxx <- unlist(xx)
->myList <- unique(as.matrix(uxx[!is.na(uxx)]))
-
-# change IDs to data.frame format
->myList <- data.frame(myList[1:100])
-\end{verbatim}
-Now we can start GUI,
-\begin{verbatim}
->bio.gui()
-\end{verbatim}
-In OPEN dialog, input "myList" as data and "Entrez Gene ID" as biological ID type. Then you can 
-proceed to manage CONVERT (mapping to destination IDs), SUBSET, LINK, EVALUATE and PLOT operations.
 
 \end{document}
 
